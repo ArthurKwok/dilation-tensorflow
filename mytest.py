@@ -21,6 +21,11 @@ if __name__ == '__main__':
     checkpoint_dir = path.join('data/checkpoint', 'dilation_' + dataset)
     if not path.exists(checkpoint_dir):
         os.makedirs(checkpoint_dir)
+    
+    # Create predict image directory
+    output_dir = test_path+'_output'
+    if not path.exists(output_dir):
+        os.makedirs(output_dir)
 
 
     with tf.Session() as sess:
@@ -39,11 +44,11 @@ if __name__ == '__main__':
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
-            output_image_path = read_path.split(".png")[0] + "_predict.png"
+            output_image_path = path.join(output_dir, path.split(read_path)[1])
             cv2.imwrite(output_image_path, predicted_image)
-            print("Predicting images, progress: {}/{}".format(index, test_size), end='\r')
+            print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
             index += 1
         
     print("------------------------------")
     print("predict finished!")
-    print("results saved in"+output_image_path)
+    print("results saved in"+output_dir)
