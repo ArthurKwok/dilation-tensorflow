@@ -11,7 +11,7 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    video_path = './data/project_video.mp4'
+    video_path = 'project_video.mp4'
     frame_dir = './data/video_frames/'
     if not path.exists(frame_dir):
         os.makedirs(frame_dir)
