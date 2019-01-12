@@ -7,20 +7,30 @@ from datasets import CONFIG
 import glob
 
 if __name__ == '__main__':
-    image_folder = './data/video_frames/'
-    video_name = 'video.avi'
+    path_in = './data/video_frames/'
+    path_out = 'video.avi'
+    fps = 30
 
-    # images = [img for img in sorted(os.listdir(image_folder)) if img.endswith(".png")]
-    # frame = cv2.imread(os.path.join(image_folder, images[0]))
-    # height, width, layers = frame.shape
+    frame_array = []
+    files = [f for f in os.listdir(pathIn) if isfile(join(pathIn, f))]
+ 
+    #for sorting the file names properly
+    files.sort(key = lambda x: int(x[5:-4]))
 
-    # video = cv2.VideoWriter(video_name, 0, 1, (width,height))
-
-    # for image in images:
-    #     video.write(cv2.imread(os.path.join(image_folder, image)))
-
-    # cv2.destroyAllWindows()
-    # video.release()
-
-    paths = os.listdir(image_folder)
-    print(paths)
+    print(files)
+    # for i in range(len(files)):
+    #     filename=pathIn + files[i]
+    #     #reading each files
+    #     img = cv2.imread(filename)
+    #     height, width, layers = img.shape
+    #     size = (width,height)
+    #     print(filename)
+    #     #inserting the frames into an image array
+    #     frame_array.append(img)
+ 
+    # out = cv2.VideoWriter(pathOut,cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
+ 
+    # for i in range(len(frame_array)):
+    #     # writing to a image array
+    #     out.write(frame_array[i])
+    # out.release()
