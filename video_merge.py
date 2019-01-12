@@ -1,10 +1,6 @@
 import cv2
+import numpy as np
 import os
-import os.path as path
-from utils import predict
-from model import dilation_model_pretrained
-from datasets import CONFIG
-import glob
 
 if __name__ == '__main__':
     pathIn = './data/video_frames/'
@@ -12,7 +8,7 @@ if __name__ == '__main__':
     fps = 30
 
     frame_array = []
-    files = [f for f in os.listdir(pathIn) if isfile(join(pathIn, f))]
+    files = [f for f in os.listdir(pathIn) if os.path.isfile(join(pathIn, f))]
  
     #for sorting the file names properly
     files.sort(key = lambda x: int(x[5:-4]))
