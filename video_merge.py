@@ -8,7 +8,7 @@ if __name__ == '__main__':
     """"""
     #TODO
     image_folder = './data/video_frames_output/*'
-    video_name = './video/avi'#save as .avi
+    video_name = 'video.avi'#save as .avi
     #is changeable but maintain same h&w over all  frames
     width=2048
     height=1024 
