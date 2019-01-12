@@ -12,7 +12,9 @@ import numpy as np
 if __name__ == '__main__':
 
     video_path = './data/test_video.mp4'
-    frame_path = './data/video_frames/'
+    frame_dir = './data/video_frames/'
+    if not path.exists(frame_dir):
+        os.makedirs(frame_dir)
 
     frame_num = 1
     clip = cv2.VideoCapture(video_path)
