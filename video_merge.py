@@ -19,7 +19,7 @@ if __name__ == '__main__':
     files = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
     files.sort(key = lambda x: int(x[5:-4]))
 
-    for i in len(files):
+    for i in range(len(files)):
         filename = image_folder + files[i]
         x=cv2.imread(filename)
         video.write(x)
