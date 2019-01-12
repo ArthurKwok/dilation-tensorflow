@@ -39,8 +39,8 @@ if __name__ == '__main__':
         model = tf.reshape(model, shape=(1,)+CONFIG[dataset]['output_shape'])
         input_tensor = graph.get_tensor_by_name('input_placeholder:0')
 
+        index = 1
         for read_path in test_paths:
-            index = 1
             input_image = cv2.imread(read_path)
             ## resize image
             input_image = cv2.resize(input_image, (2048, 1024))
@@ -50,8 +50,7 @@ if __name__ == '__main__':
 
             output_image_path = path.join(output_dir, path.split(read_path)[1])
             cv2.imwrite(output_image_path, predicted_image)
-            # print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
-            print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path)
+            print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
             index += 1
         
     print("------------------------------")
