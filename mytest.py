@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
             output_image_path = path.join(read_path.split(".png")[0], "_predict.png")
             cv2.imwrite(output_image_path, predicted_image)
-            print("Predicting images, progress: {}/{}".format(index, test_size)))
+            print("Predicting images, progress: {}/{}".format(index, test_size))
         
     print("------------------------------")
     print("predict finished!")
