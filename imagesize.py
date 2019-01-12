@@ -22,5 +22,5 @@ if __name__ == '__main__':
     image2 = cv2.imread(test_paths2[0])
     image2 = cv2.resize(image2, (2048,1024))
 
-    print(cv2.GetSize(image1))
-    print(cv2.GetSize(image2))
+    print(cv2.getSize(image1))
+    print(cv2.getSize(image2))
