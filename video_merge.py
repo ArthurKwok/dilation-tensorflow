@@ -14,11 +14,11 @@ if __name__ == '__main__':
     height=1024 
     #this fourcc best compatible for avi
     fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
-    video=cv2.VideoWriter(video_name,fourcc, 2.0, (width,height))
+    video=cv2.VideoWriter(video_name,fourcc, 30.0, (width,height))
 
 
 
-    for i in tqdm((sorted(glob.glob(image_folder),key=os.path.getmtime))):
+    for i in tqdm((sorted(glob.glob(image_folder), key = lambda x: int(x[5:-4]))):
         x=cv2.imread(i)
         video.write(x)
 
