@@ -1,13 +1,34 @@
 import cv2
-import numpy as np
 import os
+from tqdm import tqdm
+import glob
 
 if __name__ == '__main__':
     pathIn = './data/video_frames/'
 
-    os.system("cd "+ os.path.split(pathIn)[0])
-    print(os.system("ffmpeg -framerate 30 -i frame%05d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4"))
+    """"""
+    image_folder = './data/video_frames/*'
+    video_name = 'video.avi'#save as .avi
+    #is changeable but maintain same h&w over all  frames
+    width = 2048
+    height = 1024 
+    #this fourcc best compatible for avi
+    fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
+    video=cv2.VideoWriter(video_name,fourcc, 2.0, (width,height))
 
+    for i in tqdm((sorted(glob.glob(image_folder),key=os.path.getmtime))):
+        x=cv2.imread(i)
+        video.write(x)
+
+    cv2.destroyAllWindows()
+    video.release()
+
+
+    """"""
+    # os.system("cd "+ os.path.split(pathIn)[0])
+    # print(os.system("ffmpeg -framerate 30 -i frame%05d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4"))
+
+    """"""
     # frame_array = []
     # files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
  
