@@ -14,7 +14,7 @@ if __name__ == '__main__':
     height=1024 
     #this fourcc best compatible for avi
     fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
-    video=cv2.VideoWriter(video_name,fourcc, 30.0, (width,height))
+    video=cv2.VideoWriter(video_name,fourcc, 25.0, (width,height))
 
     files = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
     files.sort(key = lambda x: int(x[5:-4]))
@@ -27,6 +27,8 @@ if __name__ == '__main__':
 
     # cv2.destroyAllWindows()
     video.release()
+    print("Merge Successed!")
+    print("Video saved as: "+video_name)
 
 
     """"""
