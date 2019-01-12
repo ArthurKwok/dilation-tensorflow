@@ -7,8 +7,8 @@ from datasets import CONFIG
 import glob
 
 if __name__ == '__main__':
-    path_in = './data/video_frames/'
-    path_out = 'video.avi'
+    pathIn = './data/video_frames/'
+    pathOut = 'video.avi'
     fps = 30
 
     frame_array = []
