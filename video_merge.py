@@ -4,10 +4,9 @@ from tqdm import tqdm
 import glob
 
 if __name__ == '__main__':
-    pathIn = './data/video_frames/'
 
     """"""
-    image_folder = './data/video_frames/*'
+    image_folder = './data/video_frames_output/*'
     video_name = 'video.avi'#save as .avi
     #is changeable but maintain same h&w over all  frames
     width = 2048
@@ -29,6 +28,7 @@ if __name__ == '__main__':
     # print(os.system("ffmpeg -framerate 30 -i frame%05d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4"))
 
     """"""
+    # pathIn = './data/video_frames/'
     # frame_array = []
     # files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
  
