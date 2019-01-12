@@ -16,13 +16,15 @@ if __name__ == '__main__':
     fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
     video=cv2.VideoWriter(video_name,fourcc, 30.0, (width,height))
 
+    files = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
+    files.sort(key = lambda x: int(x[5:-4]))
 
-
-    for i in tqdm((sorted(glob.glob(image_folder), key = lambda x: int(x[5:-4])))):
-        x=cv2.imread(i)
+    for i in tqdm(files):
+        filename = image_folder + files[i]
+        x=cv2.imread(filename)
         video.write(x)
 
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
     video.release()
 
 
@@ -33,7 +35,7 @@ if __name__ == '__main__':
     """"""
     # pathIn = './data/video_frames/'
     # frame_array = []
-    # files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
+   # files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
  
     # #for sorting the file names properly
     # files.sort(key = lambda x: int(x[5:-4]))
