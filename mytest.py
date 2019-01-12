@@ -13,7 +13,7 @@ if __name__ == '__main__':
     dataset = 'cityscapes'
 
     ## set test path
-    test_path = './data/video-frames'
+    test_path = './data/bonn'
     test_paths = glob.glob(path.join(test_path, '*.jpg'))
     test_size = len(test_paths)
 
@@ -44,7 +44,7 @@ if __name__ == '__main__':
             input_image = cv2.imread(read_path)
             ## resize image
             intput_image = cv2.resize(input_image, (2048, 1024))
-            
+
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
