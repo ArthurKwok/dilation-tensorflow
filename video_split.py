@@ -11,7 +11,7 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    video_path = './data/test_video.mp4'
+    video_path = './data/project_video.mp4'
     frame_dir = './data/video_frames/'
     if not path.exists(frame_dir):
         os.makedirs(frame_dir)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     frame_num = 1
     clip = cv2.VideoCapture(video_path)
     if clip.isOpened():
-        print("read video")
+        print("Reading video..")
         rval, frame = clip.read()
     else:
         rval = False
