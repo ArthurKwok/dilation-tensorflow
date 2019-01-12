@@ -8,7 +8,7 @@ import glob
 
 if __name__ == '__main__':
     image_folder = './data/video_frames/'
-    video_path = 'video.avi'
+    video_name = 'video.avi'
 
     images = [img for img in sorted(os.listdir(image_folder)) if img.endswith(".png")]
     frame = cv2.imread(os.path.join(image_folder, images[0]))
