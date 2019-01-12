@@ -16,6 +16,11 @@ if __name__ == '__main__':
     test_path = './data/bonn'
     test_paths = glob.glob(path.join(test_path, '*.png'))
 
+    # Create checkpoint directory
+    checkpoint_dir = path.join('data/checkpoint', 'dilation_' + dataset)
+    if not path.exists(checkpoint_dir):
+        os.makedirs(checkpoint_dir)
+
     with tf.Session() as sess:
 
         saver = tf.train.import_meta_graph(path.join(checkpoint_dir, 'dilation.meta'))
