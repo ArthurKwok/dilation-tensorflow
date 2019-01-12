@@ -22,5 +22,5 @@ if __name__ == '__main__':
     "Reading video.."
     for frames in clip.iter_frames():
         cv2.imwrite(path.join(frame_dir, "frame{:0>5d}.png".format(frame_num)), frames)
-        print("Saving frame: {:0>5d}", end='\r', flush=True)
+        print("Saving frame: {:0>5d}".format(frame_num), end='\r', flush=True)
         frame_num +=1
