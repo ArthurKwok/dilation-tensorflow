@@ -24,4 +24,6 @@ if __name__ == '__main__':
     image2 = cv2.resize(image2, (2048,1024))
 
     print(image1.shape)
+    print(image1.dtype)
     print(image2.shape)
+    print(image2.dtype)
