@@ -13,7 +13,7 @@ if __name__ == '__main__':
     dataset = 'cityscapes'
 
     ## set test path
-    test_path = './data/video-frames'
+    test_path = './data/video_frames'
     test_paths = glob.glob(path.join(test_path, '*'))
     test_size = len(test_paths)
 
