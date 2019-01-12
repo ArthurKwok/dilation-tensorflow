@@ -13,10 +13,10 @@ if __name__ == '__main__':
     dataset = 'cityscapes'
 
     test_path1 = './data/bonn'
-    test_paths1 = glob.glob(path.join(test_path, '*.png'))
+    test_paths1 = glob.glob(path.join(test_path1, '*.png'))
 
     test_path2 = './data/video-frames'
-    test_paths2 = glob.glob(path.join(test_path, '*.jpg'))
+    test_paths2 = glob.glob(path.join(test_path2, '*.jpg'))
 
     image1 = cv2.imread(test_paths1[0])
     image2 = cv2.imread(test_paths2[0])
