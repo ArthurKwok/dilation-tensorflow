@@ -11,15 +11,15 @@ if __name__ == '__main__':
     #is changeable but maintain same h&w over all  frames
     width = 2048
     height = 1024 
+    fps = 30
     #this fourcc best compatible for avi
-    fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
-    video=cv2.VideoWriter(video_name,fourcc, 2.0, (width,height))
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    video=cv2.VideoWriter(video_name,fourcc, fps, (width,height))
 
     for i in tqdm((sorted(glob.glob(image_folder),key=os.path.getmtime))):
         x=cv2.imread(i)
         video.write(x)
 
-    cv2.destroyAllWindows()
     video.release()
 
 
