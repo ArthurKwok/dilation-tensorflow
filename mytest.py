@@ -17,6 +17,7 @@ if __name__ == '__main__':
     test_paths = glob.glob(path.join(test_path, '*.jpg'))
     test_size = len(test_paths)
 
+
     # Create checkpoint directory
     checkpoint_dir = path.join('data/checkpoint', 'dilation_' + dataset)
     if not path.exists(checkpoint_dir):
@@ -41,6 +42,9 @@ if __name__ == '__main__':
         for read_path in test_paths:
             index = 1
             input_image = cv2.imread(read_path)
+            ## resize image
+            cv2.resize(input_image, input_image, Size(2048, 1024))
+            
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
