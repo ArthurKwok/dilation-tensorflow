@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     ## set test path
     test_path = './data/video-frames'
-    test_paths = glob.glob(path.join(test_path, '*.png'))
+    test_paths = glob.glob(path.join(test_path, '*.jpg'))
     test_size = len(test_paths)
 
     # Create checkpoint directory
