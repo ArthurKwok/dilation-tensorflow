@@ -13,7 +13,7 @@ if __name__ == '__main__':
     dataset = 'cityscapes'
 
     ## set test path
-    test_path = './data/video_frames'
+    test_path = './data/video-frames'
     test_paths = glob.glob(path.join(test_path, '*'))
     test_size = len(test_paths)
 
@@ -50,7 +50,8 @@ if __name__ == '__main__':
 
             output_image_path = path.join(output_dir, path.split(read_path)[1])
             cv2.imwrite(output_image_path, predicted_image)
-            print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
+            # print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
+            print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path)
             index += 1
         
     print("------------------------------")
