@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
 
 
-    for i in tqdm((sorted(glob.glob(image_folder), key = lambda x: int(x[5:-4]))):
+    for i in tqdm((sorted(glob.glob(image_folder), key = lambda x: int(x[5:-4])))):
         x=cv2.imread(i)
         video.write(x)
 
