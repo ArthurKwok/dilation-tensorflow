@@ -24,6 +24,10 @@ if __name__ == '__main__':
 
     for read_path in test_paths:
         print(read_path)
+        output_image_path = path.join(read_path.split(".png")[0], "_predict.png")
+        print(output_image_path)
+        output_image_path = read_path.split(".png")[0]+"_predict.png"
+        print(output_image_path)
 
     # with tf.Session() as sess:
     #     print("loading model")
