@@ -6,6 +6,7 @@ import os.path as path
 from utils import predict
 from model import dilation_model_pretrained
 from datasets import CONFIG
+import glob
 
 if __name__ == '__main__':
 
