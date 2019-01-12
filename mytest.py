@@ -43,8 +43,8 @@ if __name__ == '__main__':
             index = 1
             input_image = cv2.imread(read_path)
             ## resize image
-            cv2.resize(input_image, input_image, Size(2048, 1024))
-            
+            cv2.resize(input_image, input_image, cv2.Size(2048, 1024))
+
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
