@@ -22,34 +22,28 @@ if __name__ == '__main__':
     if not path.exists(checkpoint_dir):
         os.makedirs(checkpoint_dir)
 
-    for read_path in test_paths:
-        print(read_path)
-        output_image_path = path.join(read_path.split(".png")[0], "_predict.png")
-        print(output_image_path)
-        output_image_path = read_path.split(".png")[0]+"_predict.png"
-        print(output_image_path)
 
-    # with tf.Session() as sess:
-    #     print("loading model")
-    #     saver = tf.train.import_meta_graph(path.join(checkpoint_dir, 'dilation.meta'))
-    #     saver.restore(sess, tf.train.latest_checkpoint(checkpoint_dir))
+    with tf.Session() as sess:
+        print("loading model")
+        saver = tf.train.import_meta_graph(path.join(checkpoint_dir, 'dilation.meta'))
+        saver.restore(sess, tf.train.latest_checkpoint(checkpoint_dir))
 
-    #     graph = tf.get_default_graph()
-    #     model = graph.get_tensor_by_name('softmax:0')
-    #     model = tf.reshape(model, shape=(1,)+CONFIG[dataset]['output_shape'])
-    #     input_tensor = graph.get_tensor_by_name('input_placeholder:0')
+        graph = tf.get_default_graph()
+        model = graph.get_tensor_by_name('softmax:0')
+        model = tf.reshape(model, shape=(1,)+CONFIG[dataset]['output_shape'])
+        input_tensor = graph.get_tensor_by_name('input_placeholder:0')
 
-    #     for read_path in test_paths:
-    #         index = 1
-    #         input_image = cv2.imread(read_path)
-    #         predicted_image = predict(input_image, input_tensor, model, dataset, sess)
-    #         predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
+        for read_path in test_paths:
+            index = 1
+            input_image = cv2.imread(read_path)
+            predicted_image = predict(input_image, input_tensor, model, dataset, sess)
+            predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
-    #         output_image_path = path.join(read_path.split(".png")[0], "_predict.png")
-    #         cv2.imwrite(output_image_path, predicted_image)
-    #         print("Predicting images, progress: {}/{}".format(index, test_size), end='\r')
-    #         index += 1
+            output_image_path = read_path.split(".png")[0] + "_predict.png"
+            cv2.imwrite(output_image_path, predicted_image)
+            print("Predicting images, progress: {}/{}".format(index, test_size), end='\r')
+            index += 1
         
-    # print("------------------------------")
-    # print("predict finished!")
-    # print("results saved in"+output_image_path)
+    print("------------------------------")
+    print("predict finished!")
+    print("results saved in"+output_image_path)
