@@ -8,7 +8,7 @@ if __name__ == '__main__':
     fps = 30
 
     frame_array = []
-    files = [f for f in os.listdir(pathIn) if os.path.isfile(join(pathIn, f))]
+    files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
  
     #for sorting the file names properly
     files.sort(key = lambda x: int(x[5:-4]))
