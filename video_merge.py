@@ -13,7 +13,8 @@ if __name__ == '__main__':
     height = 1024 
     fps = 30
     #this fourcc best compatible for avi
-    fourcc = cv2.VideoWriter_fourcc('X','2','6','4')
+    # fourcc = cv2.VideoWriter_fourcc('X','2','6','4')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v') # Be sure to use lower case
     video=cv2.VideoWriter(video_name,fourcc, fps, (width,height))
 
     for i in tqdm((sorted(glob.glob(image_folder),key=os.path.getmtime))):
