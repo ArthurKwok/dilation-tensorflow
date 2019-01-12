@@ -6,8 +6,7 @@ if __name__ == '__main__':
     pathIn = './data/video_frames/'
 
     os.system("cd "+ os.path.split(pathIn))
-    print os.system("ffmpeg -framerate 30 -i frame%05d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4
-")
+    print(os.system("ffmpeg -framerate 30 -i frame%05d.png -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4"))
 
     # frame_array = []
     # files = [f for f in os.listdir(pathIn) if os.path.isfile(os.path.join(pathIn, f))]
