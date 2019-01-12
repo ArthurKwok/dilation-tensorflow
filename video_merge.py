@@ -4,7 +4,7 @@ import os
 
 if __name__ == '__main__':
     pathIn = './data/video_frames/'
-    pathOut = 'video.avi'
+    pathOut = './data/video.avi'
     fps = 30
 
     frame_array = []
