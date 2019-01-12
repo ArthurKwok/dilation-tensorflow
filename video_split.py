@@ -14,10 +14,6 @@ if __name__ == '__main__':
     video_path = './data/test_video.mp4'
     frame_path = './data/video_frames/'
 
-    params = list()
-    params.append(cv2.CV_IMWRITE_PNG_COMPRESSION)
-    params.append(8)
-
     frame_num = 1
     clip = cv2.VideoCapture(video_path)
     if clip.isOpened():
