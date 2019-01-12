@@ -12,7 +12,7 @@ from moviepy.editor import VideoFileClip
 
 if __name__ == '__main__':
 
-    video_path = 'videoplayback_clip.mp4'
+    video_path = 'project_video.mp4'
     frame_dir = './data/video_frames/'
     if not path.exists(frame_dir):
         os.makedirs(frame_dir)
