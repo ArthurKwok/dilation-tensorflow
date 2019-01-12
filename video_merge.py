@@ -19,7 +19,7 @@ if __name__ == '__main__':
         img = cv2.imread(filename)
         height, width, layers = img.shape
         size = (width,height)
-        print("Reading... {}/{}".format(i, len(files)), end='\r' flush=True)
+        print("Reading... {}/{}".format(i, len(files)), end='\r', flush=True)
         #inserting the frames into an image array
         frame_array.append(img)
 
@@ -29,6 +29,6 @@ if __name__ == '__main__':
     for i in range(len(frame_array)):
         # writing to a image array
         out.write(frame_array[i])
-        print("Merging... {}/{}".format(i, len(frame_array)), end='\r' flush=True)
+        print("Merging... {}/{}".format(i, len(frame_array)), end='\r', flush=True)
     out.release()
     print("Video saved as: "+pathOut)
