@@ -15,6 +15,8 @@ if __name__ == '__main__':
     ## set test path
     test_path = './data/video_frames'
     test_paths = glob.glob(path.join(test_path, '*'))
+    test_paths.sort(key = lambda x: int(x[5:-4]))
+
     test_size = len(test_paths)
 
 
