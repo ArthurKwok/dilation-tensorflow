@@ -36,5 +36,5 @@ if __name__ == '__main__':
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
-            output_image_path = path.joint(read_path.split(".png")[0], "_predict.png")
+            output_image_path = path.join(read_path.split(".png")[0], "_predict.png")
             cv2.imwrite(output_image_path, predicted_image)
