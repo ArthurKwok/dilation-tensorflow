@@ -19,10 +19,11 @@ if __name__ == '__main__':
     frame_num = 1
     clip = cv2.VideoCapture(video_path)
     if clip.isOpened():
-        print("Reading video..")
         rval, frame = clip.read()
+        print("Reading video..")
     else:
         rval = False
+        print("Error: Video Not Found")
     while rval:
         rval, frame = clip.read()
         print("Saving frame {:0>5d}".format(frame_num), end='\r', flush=True)
