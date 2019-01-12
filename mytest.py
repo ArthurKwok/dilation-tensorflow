@@ -48,8 +48,10 @@ if __name__ == '__main__':
             predicted_image = predict(input_image, input_tensor, model, dataset, sess)
             predicted_image = cv2.cvtColor(predicted_image, cv2.COLOR_BGR2RGB)
 
+            output_image = cv2.addWeighted(input_image,0.5,predicted_image,0.5,0)
+
             output_image_path = path.join(output_dir, path.split(read_path)[1])
-            cv2.imwrite(output_image_path, predicted_image)
+            cv2.imwrite(output_image_path, output_image)
             print("Predicting images, progress: {}/{}".format(index, test_size)+"; Saved: "+output_image_path, end='\r', flush=True)
             index += 1
         
