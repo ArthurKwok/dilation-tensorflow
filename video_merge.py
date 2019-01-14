@@ -14,7 +14,7 @@ if __name__ == '__main__':
     height=1024 
     fps=30.0
     #this fourcc best compatible for avi
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    fourcc = cv2.VideoWriter_fourcc('M','J','P','G')
     video=cv2.VideoWriter(video_name,fourcc, fps, (width,height))
 
     files = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
